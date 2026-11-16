@@ -283,13 +283,11 @@ def find_bios() -> tuple[Path, Path]:
         BIOS_DIR / "biosnds9.bin",
         BIOS_DIR / "biosnds9.rom",
         PROJECT / "biosnds9.bin",
-        PROJECT.parent / "digimondusk" / "biosnds9.bin",
     ])
     bio7 = _first_file([
         BIOS_DIR / "biosnds7.bin",
         BIOS_DIR / "biosnds7.rom",
         PROJECT / "biosnds7.bin",
-        PROJECT.parent / "digimondusk" / "biosnds7.bin",
     ])
     if not bio9 or not bio7:
         raise SystemExit(

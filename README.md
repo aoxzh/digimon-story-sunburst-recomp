@@ -227,6 +227,16 @@ from source. See [docs/MODS.md](sunburst-recomp/docs/MODS.md).
 
 ---
 
+## Sister port: Digimon World: Dusk
+
+*Digimon World: Dusk* (USA) is the North American release of this engine: the
+ARM7 program is byte-identical and the ARM9 nearly so.
+[digimon-world-dusk-recomp](https://github.com/aoxzh/digimon-world-dusk-recomp)
+shares this repository's framework, build driver, release kit and fixes; the
+two differ only in title identity, configuration and documentation.
+
+---
+
 ## License
 
 The original tooling, build scripts, configuration and documentation in this

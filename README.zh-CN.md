@@ -201,6 +201,14 @@ GPL-3.0-or-later 的组件，属于 GPL 组合作品，请按相应条款分享�
 
 ---
 
+## 姊妹端口：Digimon World: Dusk
+
+《Digimon World: Dusk》（美版）是本引擎的北美版本：ARM7 程序逐字节相同，ARM9 几乎相同。
+[digimon-world-dusk-recomp](https://github.com/aoxzh/digimon-world-dusk-recomp)
+与本仓库共用框架、构建驱动、发布套件和修复；两者只在游戏标识、配置和文档上不同。
+
+---
+
 ## 许可证
 
 本仓库原创的工具、构建脚本、配置和文档采用 MIT 许可证，见 [LICENSE](LICENSE)。
