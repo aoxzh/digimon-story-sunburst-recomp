@@ -18,6 +18,7 @@ original tooling and documentation. Everything below keeps its own license.
 | FreeBIOS | 2013 clean-room BIOS | BSD-2-Clause | `framework/ndsrecomp/third_party/freebios/` |
 | recomp-ui | matching framework pin | MIT | `framework/recomp-ui/` |
 | Dear ImGui | bundled with recomp-ui | MIT | `framework/recomp-ui/src/third_party/imgui/` |
+| toml++ | 3.4.0 | MIT | `framework/ndsrecomp/recompiler/third_party/toml.hpp` |
 
 The framework keeps its full license texts and per-component provenance:
 `framework/ndsrecomp/LICENSE`, `LICENSE-MIT`, `LICENSE-GPL`,
