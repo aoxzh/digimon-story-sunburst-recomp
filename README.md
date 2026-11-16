@@ -23,20 +23,20 @@ runtime on your machine, and starts the game.
 ## Play on Windows
 
 1. Download `sunburst-<version>-windows-x64-sources.zip` from
-   [Releases](../../releases) and unzip it somewhere writable — for example
+   [Releases](https://github.com/aoxzh/digimon-story-sunburst-recomp/releases) and unzip it somewhere writable — for example
    `Documents\Sunburst`, **not** `Program Files`.
 2. Put your own dump at
    `rom\Digimon Story - Sunburst (Japan) (Rev 1).nds`.
 3. Run **`play.bat`**.
 
-The first run downloads a small private toolchain (LLVM-MinGW, CMake, Ninja,
+The first run downloads a pinned private toolchain (LLVM-MinGW, CMake, Ninja,
 SDL3, ndspy), verifies it, compiles the recompiler and the runtime, then starts
 the game. Expect **2–5 minutes** on a modern machine and roughly 1 GB of disk
 for the toolchain. Later launches start immediately.
 
-There is also an optional prebuilt shape (`...-windows-x64.zip`, larger) for
-players who cannot download a compiler; it is published from time to time, not
-for every tag.
+This repository and its release publish the sources shape only — there is no
+prebuilt executable. The runner is compiled on your machine, so the download
+stays small and no translated game code is redistributed.
 
 ### What you need
 
@@ -107,17 +107,23 @@ Gamepads are detected automatically. Settings live in `settings.ini`; saves in
 
 | Area | Status |
 |---|---|
-| Boot → title → save select → field | Verified |
+| Boot → title → save select → field | Verified on this release build (900 frames) |
 | Movement, dialogue, menus, touch | Verified on the first chapter route |
 | Battery save (64 KiB EEPROM) | Verified (write, reload, power-cycle restore) |
 | Save states, 12 slots | Verified |
 | Settings menu, volume, settings persistence | Verified |
 | Display filters (colour curve, LCD grid), integer scaling | Verified |
 | Fast forward (2×–4×) | Verified |
-| FreeBIOS boot without retail BIOS dumps | Verified |
+| FreeBIOS boot without retail BIOS dumps | Verified on this release build |
 | Later chapters and the full game | **Not verified** |
 | Wi-Fi / local wireless, microphone, IR | Not implemented |
 | 3D-heavy scenes | 3D renderer present, not exercised by the tested route |
+
+The feature checks were run on the development build of this port. The release
+archive is the base-bank build: it boots and renders the same route (the
+900-frame frame digest matches), but promotes fewer code regions, so expect more
+interpreter work in long scripted stretches. Behaviour differences are not
+expected from that difference alone.
 
 The tested route is the opening of the Japanese release: roughly the first
 chapter, ending after several map loads and dialogue scenes. Treat everything
