@@ -1,0 +1,45 @@
+# Game data — never commit
+*.nds
+*.sav
+*.dsv
+*.state
+saves/
+savestates/
+rom/*
+!rom/PUT-YOUR-ROM-HERE.txt
+bios*.rom
+bios*.bin
+firmware*.bin
+
+# Build and generated output
+sunburst-recomp/generated/
+sunburst-recomp/run/
+sunburst-recomp/config/perf-ab*.json
+generated/
+build/
+dist/
+game/
+runtime/
+kit/
+toolchains/
+*.exe
+*.dll
+*.lib
+*.pdb
+*.obj
+*.o
+*.a
+*.ilk
+*.exp
+
+# Toolchain caches and editor files
+__pycache__/
+*.pyc
+.cache/
+.vs/
+.vscode/
+.idea/
+CMakeFiles/
+CMakeCache.txt
+*.log
+logs/

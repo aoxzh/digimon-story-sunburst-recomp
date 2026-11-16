@@ -1,0 +1,38 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Compile every Python tool
+        run: |
+          python -m py_compile $(git ls-files '*.py')
+
+      - name: Build the sources archive
+        run: |
+          version="$(cat VERSION)"
+          python sunburst-recomp/tools/package_release.py \
+            --no-runner --version "$version" --out dist
+
+      - name: Audit the sources archive
+        run: python scripts/audit_archive.py dist/*-sources.zip
+
+      - name: Upload the sources archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: sources-archive
+          path: dist/*
+          if-no-files-found: error

@@ -1,0 +1,64 @@
+# Digimon Story: Sunburst (Japan rev 0, A3VJ) — title-owned runner configuration.
+# ROM identity is verified against docs/PORTING_SUNBURST.md; the runner rejects a
+# different cartridge before applying any of these settings.
+#
+# Sunburst is the Japanese same-engine counterpart of Digimon World Dusk
+# (A6RE): identical ARM7 build (166,336 bytes), near-identical ARM9, so the
+# Dusk bring-up findings (IRQ dispatch race, touch calibration, EEPROM
+# semantics) carry over.
+
+[game]
+name = "Digimon Story Sunburst"
+id = "A3VJ"
+region = "JPN"
+revision = 0
+status = "phase-1 bring-up: main ARM9/ARM7 native banks; overlays and firmware on live-byte interpreter tier until coverage promotion"
+rom = "../Digimon Story - Sunburst (Japan) (Rev 1).nds"
+rom_size = 0x04000000
+sha1 = "2fa1c272974fdef6b8f2acc3f9f778dd4111a587"
+sha256 = "a92788836ddf4fbe00e3f9db7a14ea1f5dc3361cdc4cec088a19a8634838e0fb"
+[display]
+# Both screens are used by the game (top: field/dialogue, bottom: touch UI).
+# Keep the stacked native 256x192 compositor for bring-up parity before any
+# audited adaptive layout is considered.
+screen_layout = "stacked"
+supersampling = 1
+antialiasing = 0
+
+[system]
+# Boot the inserted cartridge directly with generated firmware tables. The
+# retail-firmware path is not usable for this port: the runner SHA-1-gates a
+# firmware dump against a hash no commonly available image matches, so every
+# gate and the play launcher use the direct path explicitly.
+startup_mode = "automatic"
+boot = "direct"
+generated_firmware = true
+
+[cartridge]
+# EEPROM 64 KiB (512 Kbit) — the Dusk-family default. Public databases list
+# this title as "Unknown"; the same-engine Lost Evolution (A3VJ sibling) and
+# A6RE both need manual EEPROM 64K in melonDS/DeSmuME. Verify against a
+# melonDS reference save during the vertical-slice phase; the debug server's
+# spi_w event stream is the runtime confirmation path.
+save_type = "eeprom"
+save_size = 65536
+
+[arm9]
+rom_offset = 0x00004000
+entry_pc = 0x02000800
+load_address = 0x02000000
+size = 0x0012C018
+
+[arm7]
+rom_offset = 0x0027A000
+entry_pc = 0x02380000
+load_address = 0x02380000
+size = 0x000289C0
+
+[framework]
+# The framework is vendored under <project>/framework and pinned by the
+# .git submodule-free copy; the runner does not read this table (it is
+# documentation for humans and for tools/sunburst.py).
+path = "../../framework/ndsrecomp"
+ui_path = "../../framework/recomp-ui"
+ndsrecomp_version = "0.6.10"

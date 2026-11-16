@@ -1,0 +1,56 @@
+MIT License
+
+Copyright (c) 2026 the sunburst-recomp contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## Scope
+
+This license covers only the original title-project tooling and documentation
+in this repository: `sunburst-recomp/tools/`, `sunburst-recomp/game.toml`,
+`sunburst-recomp/config/`, `docs/`, the root `README.md` and
+`README.zh-CN.md`, and the CI configuration.
+
+It does not cover the game. No ROM, BIOS dump, firmware image, save file or
+generated recompiled game code is distributed with this repository, and none
+may be redistributed as part of it. You must supply your own dump of
+*Digimon Story: Sunburst (Japan) (Rev 1)*. *Digimon Story* and its assets are
+the property of their respective rights holders; this project is not
+affiliated with or endorsed by them.
+
+It does not cover the vendored framework either. `framework/ndsrecomp`
+(ndsrecomp 0.6.10) is copyright (c) 2026 Matthew Stanley and is licensed under
+the PolyForm Noncommercial License 1.0.0, with portions under the MIT License
+and melonDS-derived files under GPL-3.0-or-later; see
+`framework/ndsrecomp/LICENSE`, `LICENSE-MIT`, `LICENSE-GPL` and
+`THIRD_PARTY_ATTRIBUTION.md`. `framework/recomp-ui` is MIT, copyright (c) 2026
+Matthew Stanley. FreeBIOS, used for the FreeBIOS banks, is BSD-2-Clause. Other
+vendored components keep their own terms; see
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Nothing here grants rights to
+those components beyond what their own terms allow.
+
+Note that a built `nds_runner.exe` is a GPL-3.0-or-later combined work, because
+it links the vendored melonDS GPU code through the framework. Distributing that
+binary is subject to GPL-3.0-or-later, not to the MIT license above.
+
+The port uses FreeBIOS and a generated firmware image, so a BIOS dump is not
+required to build or play. A retail BIOS may optionally be supplied for
+low-level development boots.
